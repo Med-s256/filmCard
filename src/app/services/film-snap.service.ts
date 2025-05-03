@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FilmSnap } from "../models/film-snap";
+import { snapType } from "../models/snap-type.type";
 
 @Injectable(
     {
@@ -15,7 +16,7 @@ export class FilmSnapService {
         'https://upload.wikimedia.org/wikipedia/commons/6/6e/St%C3%B6wer_Titanic.jpg',
         new Date(),
         10
-      ),
+      ).withLocation("à la montagne"),
       new FilmSnap(
         'mission impossible',
         'this film is sorted at public in 2015',
@@ -29,7 +30,7 @@ export class FilmSnapService {
         'https://photos.tf1.fr/1200/720/vignette-16-9-584dbf-799738-0@1x.webp',
         new Date(),
         250
-      ),
+      ).withLocation("in the beatch"),
       new FilmSnap(
         'titanic11',
         'this film is sorted at public in 2008',
@@ -42,5 +43,13 @@ export class FilmSnapService {
     return [... this.films];
   }
    
-   
+  snapFilm(filmId:string, snapType: snapType): void{
+    const film: FilmSnap | undefined = this.films.find(filmSnap => filmSnap.id === filmId)
+    if(!film){
+        throw new Error('film not found');
+        
+    }
+    film.snapAction(snapType);
+  }
+ 
 }

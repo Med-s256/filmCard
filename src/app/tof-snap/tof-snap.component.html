@@ -1,4 +1,4 @@
-<div class="filmCard" >
+<div class="filmCard" [ngClass]="{snapped: isSnapped }">
   <h1>{{ snapFilm.title | uppercase}}</h1>
   @if(snapFilm.location){
 

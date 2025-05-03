@@ -11,12 +11,11 @@ import { FilmSnapService } from '../services/film-snap.service';
 })
 export class FilmListComponent implements OnInit {
   films!: FilmSnap[];
- constructor(public filmSer: FilmSnapService){
+ constructor(private filmSer: FilmSnapService){
 
  }
   ngOnInit(): void {
     this.films= this.filmSer.getFilms();
-    this.films[0].setLocation('in the montain');
-    this.films[2].setLocation('in the village')
+   
   }
 }
