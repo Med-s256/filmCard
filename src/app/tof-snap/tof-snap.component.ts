@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FilmSnap } from '../models/film-snap';
-import { NgClass, NgStyle } from '@angular/common';
+import { DatePipe, NgClass, NgStyle, TitleCasePipe, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-tof-snap',
-  imports: [NgStyle, NgClass],
+  imports: [NgStyle, NgClass, UpperCasePipe, TitleCasePipe, DatePipe],
   templateUrl: './tof-snap.component.html',
   styleUrl: './tof-snap.component.scss',
 })

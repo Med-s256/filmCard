@@ -1,8 +1,8 @@
-<div class="filmCard" [ngClass]="{snapped: isSnapped }">
-  <h1>{{ snapFilm.title }}</h1>
+<div class="filmCard" >
+  <h1>{{ snapFilm.title | uppercase}}</h1>
   @if(snapFilm.location){
 
-      <h3>Location: {{this.snapFilm.location}}</h3>
+      <h3>Location: {{this.snapFilm.location | titlecase}}</h3>
   }
   @else{
 
@@ -10,7 +10,7 @@
   }
   <img [src]="snapFilm.url" [alt]="snapFilm.title" />
   <p>{{ snapFilm.description }}</p>
-  <p>{{ snapFilm.createdAt }}</p>
-  <button (click)="snap()">{{textButton}}</button>
+  <p>{{ snapFilm.createdAt | date: 'longDate'}}</p>
+  <button [ngClass]="{snapped: isSnapped }" (click)="snap()">{{textButton}}</button>
   <span [ngStyle]="{color:'rgb(0,'+snapFilm.snaps+',0)'}">{{ snapFilm.snaps }}</span>
 </div>
